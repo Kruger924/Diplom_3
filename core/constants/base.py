@@ -1,0 +1,1 @@
+BASE_URL: str = "https://stellarburgers.education-services.ru"
