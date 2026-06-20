@@ -29,6 +29,7 @@ class OrderFeedPage(BasePage):
             self.find(CONSTRUCTOR_BASKET)
         )
 
+    @allure.step("Получение номеров заказов в работе")
     def get_in_processing_order_numbers(self):
         ul_elem = self.find(ALL_ORDERS_NUMBER_IN_PROCESS_MODAL)
         return [
@@ -36,6 +37,7 @@ class OrderFeedPage(BasePage):
             for li in ul_elem.find_elements(*IN_PROCESSING_ORDER_ITEMS)
         ]
 
+    @allure.step("Ожидание номера созданного заказа")
     def wait_for_real_order_number(self, timeout=20):
         def is_real_order_number(_):
             text = self.find(ORDER_NUMBER_IN_MODAL_TEXT).text.strip()
